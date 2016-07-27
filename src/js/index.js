@@ -6,5 +6,5 @@ var Hello = require("./Hello");
 
 ReactDOM.render(
 <Hello name="Jack"/>,
-document.getElementById('ex')
-	);
+	document.getElementById('ex')
+);

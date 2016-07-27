@@ -8,13 +8,18 @@ module.exports ={
 	entry : [
 		'webpack-dev-server/client?http://localhost:3001',
 		'webpack/hot/only-dev-server',
+		
 		projectRoot+'/src/js/index.js'
 	],
+	resolve: {
+		 extensions: ['', '.js', '.jsx']
+    },
 	output: {
 		path: projectRoot+"/build",
 		filename: '[name].js',
 		 //publicPath: './',
 	},
+
 	module: {
 		preLoaders: [
 			//{
@@ -25,13 +30,15 @@ module.exports ={
     	],
 		loaders: [
 
-			{ test: [/\.js$/, /\.jsx$/], exclude: /node_modules/,loaders: ['react-hot','jsx?harmony']},
-			{ test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/, loader: 'url', query: {limit:10000,name:'[name].[ext]?[hash:7]'}},
+			{ test: [/\.js$/, /\.jsx$/], exclude: /node_modules/,loaders: ['react-hot','jsx-loader?harmony']},
+			{ test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,exclude: /node_modules/, loader: 'url', query: {limit:10000,name:'[name].[ext]?[hash:7]'}},
 			{
 		      test: /\.less/,
+		      exclude: /node_modules/,
 		      loader: 'style-loader!css-loader!less-loader'
 		    }, {
 		      test: /\.(css)$/,
+		      exclude: /node_modules/,
 		      loader: 'style-loader!css-loader'
 		    },
 		]
@@ -43,7 +50,7 @@ module.exports ={
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: projectRoot+'/src/index.html',
+      template: 'src/index.html',
       inject: true
     })
   ]
