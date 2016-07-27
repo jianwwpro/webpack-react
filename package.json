@@ -1,0 +1,16 @@
+{
+  "name": "react-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.13.1"
+  }
+}
